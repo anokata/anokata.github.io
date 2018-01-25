@@ -29,6 +29,16 @@ body.color2 {
     color: #333;
 }
 
+.paper.color2 {
+    background-color: #ddd;
+    color: #333;
+}
+
+.paper.color1 {
+    background-color: #333;
+    color: #ddd;
+}
+
 .paper {
     background-color: #ddd;
     color: #333;
@@ -48,8 +58,14 @@ h4, p {
     margin: 0.4rem 0.7rem;
 }
 
-header, footer {
+header.color1, footer.color1 {
     background: #4f4f4f;
+}
+header.color2, footer.color2 {
+    background: #d4d4d4;
+}
+
+header, footer {
     margin: 0;
     min-height: 2rem;
 }
@@ -63,8 +79,14 @@ footer {
   text-align: center;
 }
 
-.menu-elem {
+.menu-elem.color1 {
     color: #eee;
+}
+.menu-elem.color2 {
+    color: #222;
+}
+
+.menu-elem {
     cursor: pointer;
     display: inline-block;
     margin: 1rem 1rem 1rem 1rem;
@@ -79,6 +101,8 @@ footer {
 <body class="colorscheme color1">
     <script>
         window.addEventListener("load", init);
+window.colorschemes = ['color1', 'color2'];
+window.colorscheme = 0;
 
 function scrollPaper() {
     var paper = document.querySelector(".paper");
@@ -91,23 +115,27 @@ function init() {
 
 function change_colorscheme(scheme) {
     var elements = document.getElementsByClassName('colorscheme');
+    oldscheme = window.colorschemes[window.colorscheme];
+    window.colorscheme = (window.colorscheme + 1) % window.colorschemes.length;
+    scheme = window.colorschemes[window.colorscheme];
     for (var i in elements) {
         if (elements.hasOwnProperty(i)) {
-            elements[i].className = 'colorscheme ' + scheme;
+            elements[i].classList.toggle(oldscheme);
+            elements[i].classList.toggle(scheme);
         }
     }
 }
 
     </script>
-    <header>
-        <span class="menu-elem">main</span>
-        <span class="menu-elem">info</span>
+    <header class="colorscheme color1">
+        <span class="menu-elem colorscheme color1">main</span>
+        <span class="menu-elem colorscheme color1">info</span>
     </header>
     <div class="nav">
-        <p class="menu-elem">main</p>
-        <p class="menu-elem" onclick="change_colorscheme('color2')">colorscheme</p>
+        <p class="menu-elem colorscheme color1">main</p>
+        <p class="menu-elem colorscheme color1" onclick="change_colorscheme('color2')">colorscheme</p>
     </div>
-    <div class="paper">
+    <div class="colorscheme color1 paper">
         <h4>A</h4>
         <p>A</p>
         <h4>A</h4>
@@ -116,7 +144,7 @@ function change_colorscheme(scheme) {
         <h4></h4>
     </div>
 
-<footer>
+<footer class="colorscheme color1">
     <div class="footer">
         <div class="footerBlock">
 
