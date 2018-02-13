@@ -127,6 +127,7 @@ function change_colorscheme(scheme) {
 }
 
     </script>
+<canvas id="can"></canvas>
     <header class="colorscheme color1">
         <span class="menu-elem colorscheme color1">main</span>
         <span class="menu-elem colorscheme color1">info</span>
@@ -134,6 +135,7 @@ function change_colorscheme(scheme) {
     <div class="nav">
         <p class="menu-elem colorscheme color1">main</p>
         <p class="menu-elem colorscheme color1" onclick="change_colorscheme('color2')">colorscheme</p>
+        <p class="menu-elem colorscheme color1" onclick="initFade()">fade</p>
     </div>
     <div class="colorscheme color1 paper">
         <h4>A</h4>
@@ -159,5 +161,42 @@ function change_colorscheme(scheme) {
         </div>
     </div>
 </footer>
+
+<!-- Fade -->
+<style>
+#can {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -20;
+}
+</style>
+<script>
+//window.addEventListener("load", init);
+function initFade() {
+    window._fade = 0.01;
+    var canva = document.getElementById("can");
+    canva.style.zIndex = 1;
+    setTimeout(fadeOut, 50);
+}
+function fade() {
+    var canva = document.getElementById("can");
+    canva.width = window.innerWidth;
+    canva.height = window.innerHeight;
+    var w = canva.width;
+    var h = canva.height;
+    var ctx = canva.getContext("2d");
+    ctx.fillStyle="rgba(10,10,10, " + window._fade + ")";
+    ctx.fillRect(0,0,w,h);
+}
+function fadeOut() {
+    if (window._fade < 1.0) {
+        window._fade += 0.05;
+        fade();
+        setTimeout(fadeOut, 5);
+    } 
+}
+</script>
+
 </body>
 </html>
