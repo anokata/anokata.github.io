@@ -14,10 +14,13 @@
 
 <script>
 p = [0];
+xy = [0,0];
 center = 10;
+centerx = 50;
+centery = 50;
 pixel = 1;
 height = 5;
-x = 0;
+t = 0;
 window.addEventListener("load", init);
 function init() {
     var canva = document.getElementById("can");
@@ -26,7 +29,7 @@ function init() {
     canva.height = window.innerHeight;
     var w = canva.width;
     var h = canva.height;
-    setTimeout(draw, 150);
+    setTimeout(drawAll, 50);
     console.log("point");
 }
 function clear() {
@@ -35,10 +38,16 @@ function clear() {
     ctx.fillStyle="rgba(0,0,0,1)";
     ctx.fillRect(0,0,canva.width, canva.height);
 }
+function drawAll() {
+    clear();
+    //draw();
+    drawxy();
+    t += Math.PI / 32;
+    setTimeout(drawAll, 20);
+}
 function draw() {
     var canva = document.getElementById("can");
     var ctx = canva.getContext("2d");
-    clear();
     ctx.fillStyle="rgba(255,255,255, 0.5)";
     for (var i = 0; i < p.length; i++) {
         var point = p[i];
@@ -50,15 +59,35 @@ function draw() {
     window.p.unshift(next());
     //console.log(p);
     //if (p.length < 50)
-    setTimeout(draw, 50);
     if (p.length > 20)
         p.pop();
 }
 
 function next() {
-    x += Math.PI / 22;
-    var next = Math.sin(x) * height + height;
+    var next = Math.sin(t) * height + height;
     return Math.round(next);
+}
+
+function card() {
+    var a = 10;
+    var x = a*2*Math.cos(t) - a*Math.cos(2*t);
+    var y = a*2*Math.sin(t) - a*Math.sin(2*t);
+    return [x,y]
+}
+
+function drawxy() {
+    var canva = document.getElementById("can");
+    var ctx = canva.getContext("2d");
+    ctx.fillStyle="rgba(255,155,155, 0.5)";
+    for (var i = 0; i < xy.length; i++) {
+        var point = xy[i];
+        ctx.fillStyle="rgba(255,105,105, " + ((xy.length-i)/xy.length) + ")";
+        ctx.fillRect(centerx+pixel*point[1], centery-pixel*point[0], pixel, pixel);
+    }
+    window.xy.unshift(card());
+    //console.log(xy);
+    if (xy.length > 200)
+        xy.pop();
 }
 </script>
 
