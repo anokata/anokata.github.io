@@ -26,6 +26,7 @@
 <input id="city" type=hidden value="" name="city">
 <input class="" type="text" title="Address" name="address_default" placeholder=""
     value="" id="address_default" type="text" size="100"/> 
+<div id="info" class="info"></div>
 
 
 <script type="text/javascript">
@@ -41,6 +42,13 @@ type: "ADDRESS",
     document.querySelector("#geo_lon").value = suggestion.data.geo_lon;
     document.querySelector("#geo_lat").value = suggestion.data.geo_lat;
     document.querySelector("#city").value = suggestion.data.city || suggestion.data.settlement;
+    var info = document.getElementById("info");
+        info.innerHTML = "Info:<br>";
+        info.innerHTML += "Lon: ";
+        info.innerHTML += suggestion.data.geo_lon;
+        info.innerHTML += "<br>Lat: ";
+        info.innerHTML += suggestion.data.geo_lat;
+        map.setCenter([suggestion.data.geo_lat, suggestion.data.geo_lon]);
     }
 });
 </script>
@@ -56,6 +64,7 @@ type: "ADDRESS",
             center: [55.76, 37.64],
             zoom: 7
         });
+        window.map = myMap;
     }
 </script>
 
