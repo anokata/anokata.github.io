@@ -1,0 +1,98 @@
+
+/*
+   todo diff colorschemes
+   веселенько
+   серьезно
+   скучно
+   безумно
+   */
+body {
+    font-family: monospace;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+body.color1 {
+    background-color: #222;
+    color: #eee;
+}
+
+body.color2 {
+    background-color: #eee;
+    color: #333;
+}
+
+.paper.color2 {
+    background-color: #ddd;
+    color: #333;
+}
+
+.paper.color1 {
+    background-color: #333;
+    color: #ddd;
+}
+
+.paper {
+    background-color: #ddd;
+    color: #333;
+    margin: 0 auto;
+    width: 50%;
+    min-height: 20rem;
+    border-radius: 3px;
+    box-shadow: 0px 10px 35px 1px #6d6d6d;
+    transition: 3s all;
+}
+
+.nav {
+    float: left;
+}
+
+h4, p {
+    margin: 0.4rem 0.7rem;
+}
+
+header.color1, footer.color1 {
+    background: #4f4f4f;
+}
+header.color2, footer.color2 {
+    background: #d4d4d4;
+}
+
+header, footer {
+    margin: 0;
+    min-height: 2rem;
+}
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+.menu-elem.color1 {
+    color: #eee;
+}
+.menu-elem.color2 {
+    color: #222;
+}
+
+.menu-elem {
+    cursor: pointer;
+    display: inline-block;
+    margin: 1rem 1rem 1rem 1rem;
+}
+.menu-elem:hover {
+    color: #aae;
+}
+.nav p {
+    display: block;
+}
+#can {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -20;
+}

@@ -4,129 +4,13 @@
     <meta charset="UTF-8"></meta>
     <title>CV</title>
 </head>
-<!-- Yandex.Metrika counter --> <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter46652703 = new Ya.Metrika({ id:46652703, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/46652703" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
-<style>
-/*
-   todo diff colorschemes
-   веселенько
-   серьезно
-   скучно
-   безумно
-   */
-body {
-    font-family: monospace;
-    font-size: 1.2rem;
-    margin: 0;
-}
 
-body.color1 {
-    background-color: #222;
-    color: #eee;
-}
-
-body.color2 {
-    background-color: #eee;
-    color: #333;
-}
-
-.paper.color2 {
-    background-color: #ddd;
-    color: #333;
-}
-
-.paper.color1 {
-    background-color: #333;
-    color: #ddd;
-}
-
-.paper {
-    background-color: #ddd;
-    color: #333;
-    margin: 0 auto;
-    width: 50%;
-    min-height: 20rem;
-    border-radius: 3px;
-    box-shadow: 0px 10px 35px 1px #6d6d6d;
-    transition: 3s all;
-}
-
-.nav {
-    float: left;
-}
-
-h4, p {
-    margin: 0.4rem 0.7rem;
-}
-
-header.color1, footer.color1 {
-    background: #4f4f4f;
-}
-header.color2, footer.color2 {
-    background: #d4d4d4;
-}
-
-header, footer {
-    margin: 0;
-    min-height: 2rem;
-}
-
-footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  text-align: center;
-}
-
-.menu-elem.color1 {
-    color: #eee;
-}
-.menu-elem.color2 {
-    color: #222;
-}
-
-.menu-elem {
-    cursor: pointer;
-    display: inline-block;
-    margin: 1rem 1rem 1rem 1rem;
-}
-.menu-elem:hover {
-    color: #aae;
-}
-.nav p {
-    display: block;
-}
-</style>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+    <script src="effects.js"></script>
 <body class="colorscheme color1">
-    <script>
-        window.addEventListener("load", init);
-window.colorschemes = ['color1', 'color2'];
-window.colorscheme = 0;
+    <noscript><div><img src="https://mc.yandex.ru/watch/46652703" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
 
-function scrollPaper() {
-    var paper = document.querySelector(".paper");
-    paper.style.height = "40rem";
-}
-
-function init() {
-    setTimeout(scrollPaper, 400);
-}
-
-function change_colorscheme(scheme) {
-    var elements = document.getElementsByClassName('colorscheme');
-    oldscheme = window.colorschemes[window.colorscheme];
-    window.colorscheme = (window.colorscheme + 1) % window.colorschemes.length;
-    scheme = window.colorschemes[window.colorscheme];
-    for (var i in elements) {
-        if (elements.hasOwnProperty(i)) {
-            elements[i].classList.toggle(oldscheme);
-            elements[i].classList.toggle(scheme);
-        }
-    }
-}
-
-    </script>
 <canvas id="can"></canvas>
     <header class="colorscheme color1">
         <span class="menu-elem colorscheme color1">main</span>
@@ -162,41 +46,7 @@ function change_colorscheme(scheme) {
     </div>
 </footer>
 
-<!-- Fade -->
-<style>
-#can {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: -20;
-}
-</style>
-<script>
-//window.addEventListener("load", init);
-function initFade() {
-    window._fade = 0.01;
-    var canva = document.getElementById("can");
-    canva.style.zIndex = 1;
-    setTimeout(fadeOut, 50);
-}
-function fade() {
-    var canva = document.getElementById("can");
-    canva.width = window.innerWidth;
-    canva.height = window.innerHeight;
-    var w = canva.width;
-    var h = canva.height;
-    var ctx = canva.getContext("2d");
-    ctx.fillStyle="rgba(10,10,10, " + window._fade + ")";
-    ctx.fillRect(0,0,w,h);
-}
-function fadeOut() {
-    if (window._fade < 1.0) {
-        window._fade += 0.05;
-        fade();
-        setTimeout(fadeOut, 5);
-    } 
-}
-</script>
-
 </body>
+<!-- https://knoema.ru/atlas/sources -->
+<!-- https://datahelpdesk.worldbank.org/knowledgebase/articles/898581-api-basic-call-structure -->
 </html>

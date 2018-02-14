@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>CV</title>
+</head>
+
+    <link rel="stylesheet" href="main.css">
+    <link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@17.10.0/dist/css/suggestions.min.css" type="text/css" rel="stylesheet" />
+    <script src="main.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!--[if lt IE 10]>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js"></script>
+    <![endif]-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/suggestions-jquery@17.10.0/dist/js/jquery.suggestions.min.js"></script>
+
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+
+<body class="colorscheme color1">
+    <noscript><div><img src="https://mc.yandex.ru/watch/46652703" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+
+
+<input id="name" type=hidden value="" name="name">
+<input id="geo_lat" type=hidden value="" name="geo_lat">
+<input id="geo_lon" type=hidden value="" name="geo_lon">
+<input id="city" type=hidden value="" name="city">
+<input class="" type="text" title="Address" name="address_default" placeholder=""
+    value="" id="address_default" type="text" size="100"/> 
+
+
+<script type="text/javascript">
+$("#address_default").suggestions({
+token: "89f7cd1f9b756423ad625117394ade24c5f44bee",
+type: "ADDRESS",
+    count: 5,
+    onSelect: function(suggestion) {
+    console.log(suggestion.data.fias_id);
+    console.log(suggestion);
+    console.log(suggestion.data.geo_lon, suggestion.data.geo_lat);
+    //document.querySelector("#address").value = suggestion.data.fias_id;
+    document.querySelector("#geo_lon").value = suggestion.data.geo_lon;
+    document.querySelector("#geo_lat").value = suggestion.data.geo_lat;
+    document.querySelector("#city").value = suggestion.data.city || suggestion.data.settlement;
+    }
+});
+</script>
+
+<div id="map" style="margin: 0; width: 600px; height: 400px"></div>
+
+<script type="text/javascript">
+    ymaps.ready(init);
+    var myMap;
+
+    function init(){     
+        myMap = new ymaps.Map("map", {
+            center: [55.76, 37.64],
+            zoom: 7
+        });
+    }
+</script>
+
+</body>
+</html>
