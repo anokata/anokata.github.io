@@ -5,7 +5,8 @@ window.colorscheme = 0;
 
 function scrollPaper() {
     var paper = document.querySelector(".paper");
-    paper.style.height = "40rem";
+    if (paper)
+        paper.style.height = "40rem";
 }
 
 function init() {

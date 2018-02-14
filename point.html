@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>CV</title>
+</head>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+    <script src="effects.js"></script>
+<body class="colorscheme color1">
+    <noscript><div><img src="https://mc.yandex.ru/watch/46652703" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+
+<canvas id="can"></canvas>
+
+<script>
+p = [0];
+center = 10;
+pixel = 1;
+height = 5;
+x = 0;
+window.addEventListener("load", init);
+function init() {
+    var canva = document.getElementById("can");
+    canva.style.zIndex = 1;
+    canva.width = window.innerWidth;
+    canva.height = window.innerHeight;
+    var w = canva.width;
+    var h = canva.height;
+    setTimeout(draw, 150);
+    console.log("point");
+}
+function clear() {
+    var canva = document.getElementById("can");
+    var ctx = canva.getContext("2d");
+    ctx.fillStyle="rgba(0,0,0,1)";
+    ctx.fillRect(0,0,canva.width, canva.height);
+}
+function draw() {
+    var canva = document.getElementById("can");
+    var ctx = canva.getContext("2d");
+    clear();
+    ctx.fillStyle="rgba(255,255,255, 0.5)";
+    for (var i = 0; i < p.length; i++) {
+        var point = p[i];
+        ctx.fillStyle="rgba(255,255,255, " + ((p.length-i)/p.length) + ")";
+        ctx.fillRect(center+i*pixel,point*pixel,pixel,pixel);
+    }
+    ctx.fillStyle="rgba(255,255,255, 1.0)";
+    ctx.fillRect(center,p[0]*pixel,pixel,pixel);
+    window.p.unshift(next());
+    //console.log(p);
+    //if (p.length < 50)
+    setTimeout(draw, 50);
+    if (p.length > 20)
+        p.pop();
+}
+
+function next() {
+    x += Math.PI / 22;
+    var next = Math.sin(x) * height + height;
+    return Math.round(next);
+}
+</script>
+
+</body>
+</html>
