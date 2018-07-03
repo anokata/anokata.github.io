@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Time</title>
+</head>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+<body class="colorscheme color1">
+    <noscript><div><img src="https://mc.yandex.ru/watch/46652703" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+
+<canvas id="can"></canvas>
+
+<script>
+frameHeight = 8;
+frameWidth= 250;
+frameThick = 5;
+
+Date.prototype.monthDays= function(){
+    var d= new Date(this.getFullYear(), this.getMonth()+1, 0);
+    return d.getDate();
+}
+
+window.addEventListener("load", init);
+function init() {
+    var canva = document.getElementById("can");
+    canva.style.zIndex = 1;
+    canva.width = window.innerWidth;
+    canva.height = window.innerHeight;
+    var w = canva.width;
+    var h = canva.height;
+    setTimeout(drawAll, 50);
+}
+function clear() {
+    var canva = document.getElementById("can");
+    var ctx = canva.getContext("2d");
+    ctx.fillStyle="rgba(0,0,0,1)";
+    ctx.fillRect(0,0,canva.width, canva.height);
+}
+function drawAll() {
+    clear();
+    draw();
+    setTimeout(drawAll, 10);
+}
+function draw() {
+    var canva = document.getElementById("can");
+    var ctx = canva.getContext("2d");
+    var date = new Date();
+    var d = date.getDay();
+    var h = date.getHours();
+    var m = date.getMinutes();
+    var s = date.getSeconds();
+    var M = date.getMonth();
+    var y = date.getFullYear();
+    var ms = date.getMilliseconds();
+    var days = date.monthDays();
+
+    var secVal = (frameWidth - frameThick * 2) / 59 * s;
+    var msecVal = (frameWidth - frameThick * 2) / 999 * ms;
+    var minVal = (frameWidth - frameThick * 2) / 59 * m;
+    var hourVal = (frameWidth - frameThick * 2) / 23 * h;
+    var dayVal = (frameWidth - frameThick * 2) / days * d;
+    var monthVal = (frameWidth - frameThick * 2) / 12 * M;
+    var yearVal = (frameWidth - frameThick * 2) / 4000 * y;
+
+    ctx.fillStyle="rgba(255,255,255, 0.5)";
+
+    // Frames
+    for (var h = 0; h < 7; h++) {
+        ctx.fillRect(10, h * frameHeight * 2 + 10, frameWidth, frameHeight);
+    }
+
+    var h = 0;
+    var y = h * frameHeight * 2 + 10 + frameThick;
+    ctx.fillStyle="rgba(255,255,255, 1.0)";
+    var values = [msecVal, secVal, minVal, hourVal, dayVal, monthVal, yearVal];
+
+    // Progress
+    for (var h = 0; h < values.length; h++) {
+        y = h * frameHeight * 2 + 10 + frameThick;
+        drawVal(ctx, values[h], y);
+    }
+}
+
+function drawVal(ctx, val, y) {
+    ctx.fillRect(10 + frameThick, y, val,  frameHeight - 2 * frameThick);
+}
+
+</script>
+
+</body>
+</html>
