@@ -12,9 +12,9 @@
 <canvas id="can"></canvas>
 
 <script>
-frameHeight = 8;
+frameHeight = 18;
 frameWidth= 250;
-frameThick = 5;
+frameThick = 15;
 
 Date.prototype.monthDays= function(){
     var d= new Date(this.getFullYear(), this.getMonth()+1, 0);
@@ -34,7 +34,7 @@ function init() {
 function clear() {
     var canva = document.getElementById("can");
     var ctx = canva.getContext("2d");
-    ctx.fillStyle="rgba(0,0,0,1)";
+    ctx.fillStyle="#888888";
     ctx.fillRect(0,0,canva.width, canva.height);
 }
 function drawAll() {
@@ -72,7 +72,7 @@ function draw() {
 
     var h = 0;
     var y = h * frameHeight * 2 + 10 + frameThick;
-    ctx.fillStyle="rgba(255,255,255, 1.0)";
+    ctx.fillStyle="#aaffcc";
     var values = [msecVal, secVal, minVal, hourVal, dayVal, monthVal, yearVal];
 
     // Progress
