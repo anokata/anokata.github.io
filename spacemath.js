@@ -2,16 +2,20 @@ window.addEventListener("load", init);
 var ctx;
 var width, height;
 var ui={};
-var game={
+var game;
+var gameInit={
     'number': 0,
+    'addition': 0,
 };
 let firstX = 300;
-let firstW = 130;
 let firstY = 30;
 const CLEAR_COLOR = "#777";
 const TEXT_COLOR = "#ddd";
+const buttonH = 30;
+const buttonW = 130;
 
 function init() {
+    game = gameInit;
     load();
     var canva = document.getElementById("can");
     ctx = canva.getContext("2d");
@@ -27,22 +31,24 @@ function init() {
     canva.onmousedown = onClick;
 }
 
-function initUI() {
+function initUI() { // Создание интерфейса
     ui.buttons = [];
-    makeDefButton(firstX, firstY, firstW, 30, text('+'), start);
-    makeDefButton(2, 2, 70, 30, text('reset'), reset);
+    let leftPan = 2;
+    makeDefButton(firstX, firstY, text('+'), start);
+    makeDefButton(leftPan, leftPan, text('reset'), reset);
+    makeDefButton(leftPan, buttonH*1 + leftPan, text('save'), save);
+    makeDefButton(leftPan, buttonH*2 + leftPan, text('load'), load);
+
+    makeDefButton(firstX, firstY + buttonH*2, text('a++'), upgrade1);
 }
 
 function reset() {
-    game={
-        'number': 0,
-    };
+    game=gameInit;
 }
 
 function start() {
     console.log("start!");
     game.number += 1;
-    save();
 }
 
 function onClick(e) {
@@ -82,7 +88,8 @@ function drawAll() {
 function draw() {
     a += 1;
     ctx.fillStyle = TEXT_COLOR;
-    ctx.fillText("" + game.number, firstX + firstW / 2, firstY - 5);
+    ctx.fillText("N = " + game.number, firstX + buttonW / 2, firstY - 5);
+    ctx.fillText("a = " + game.addition, firstX + buttonW / 2, firstY*3 - 5);
 
     drawButtons();
 }
@@ -126,8 +133,8 @@ function makeButton(x, y, w, h, label, color, activeColor, frameColor, click) {
     ui.buttons.push(button);
 }
 
-function makeDefButton(x, y, w, h, label, click) {
-    return makeButton(x, y, w, h, label, '#555', "#888", "#aaa", click);
+function makeDefButton(x, y, label, click) {
+    return makeButton(x, y, buttonW, buttonH, label, '#555', "#888", "#aaa", click);
 }
 
 function text(t) {
@@ -148,4 +155,9 @@ function load() {
         console.log(JSON.parse(atob(g)));
         game = JSON.parse(atob(g));
     }
+}
+
+function upgrade1() {
+    // price
+    game.addition += 1;
 }
