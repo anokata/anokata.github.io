@@ -16,14 +16,44 @@ function init() {
     a=0;
     ctx.font = "20px mono";
     initUI();
+    canva.onclick = onClick;
 }
 
 function initUI() {
     ui.buttons = [];
-    makeButton(100, 100, 130, 30, 'Начать', 'blue', 'red');
+    makeButton(100, 100, 130, 30, 'Начать', 'blue', 'red', start);
     makeButton(300, 100, 130, 30, '1Начать', 'red', 'red');
     makeButton(100, 300, 130, 30, '2Начать', 'green', 'red');
     makeButton(300, 300, 130, 30, '3Начать', 'black', 'red');
+}
+
+function start() {
+    console.log("start!");
+}
+
+function onClick(e) {
+    let x = e.x;
+    let y = e.y;
+
+    ui.buttons.forEach(function (b) {
+        if (inBox(x, y, b)) {
+            console.log(x, y, b);
+            b.active = true;
+            b.click();
+            setTimeout(deactivate, 200, b);
+        }
+    });
+}
+
+function deactivate(b) {
+    b.active = false;
+}
+
+function inBox(x, y, b) {
+    if (x > b.x && x < b.x + b.w)
+        if (y > b.y && y < b.y + b.h)
+            return true;
+    return false;
 }
 
 function clear() {
@@ -45,7 +75,11 @@ function draw() {
 
 function drawButtons() {
     ui.buttons.forEach(function (b) {
-        ctx.fillStyle = b.color;
+        if (b.active) {
+            ctx.fillStyle = b.activeColor;
+        } else {
+            ctx.fillStyle = b.color;
+        }
         ctx.textAlign = "center";
         ctx.fillRect(b.x, b.y, b.w, b.h);
         ctx.fillStyle = "#fff";
@@ -55,7 +89,10 @@ function drawButtons() {
     });
 }
 
-function makeButton(x, y, w, h, label, color, activeColor) {
+function makeButton(x, y, w, h, label, color, activeColor, click) {
+    if (!click) {
+        click = function () {};
+    }
     let button = {
         'x': x,
         'y': y,
@@ -64,6 +101,9 @@ function makeButton(x, y, w, h, label, color, activeColor) {
         'label': label,
         'color': color,
         'activeColor': activeColor,
+        'click': click,
+
+        'active': false,
     };
     ui.buttons.push(button);
 }
