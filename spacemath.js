@@ -2,9 +2,17 @@ window.addEventListener("load", init);
 var ctx;
 var width, height;
 var ui={};
+var game={
+    'number': 0,
+};
+let firstX = 300;
+let firstW = 130;
+let firstY = 30;
 const CLEAR_COLOR = "#777";
+const TEXT_COLOR = "#ddd";
 
 function init() {
+    load();
     var canva = document.getElementById("can");
     ctx = canva.getContext("2d");
     canva.style.zIndex = 1;
@@ -21,11 +29,20 @@ function init() {
 
 function initUI() {
     ui.buttons = [];
-    makeDefButton(300, 300, 130, 30, '3Начать', start);
+    makeDefButton(firstX, firstY, firstW, 30, text('+'), start);
+    makeDefButton(2, 2, 70, 30, text('reset'), reset);
+}
+
+function reset() {
+    game={
+        'number': 0,
+    };
 }
 
 function start() {
     console.log("start!");
+    game.number += 1;
+    save();
 }
 
 function onClick(e) {
@@ -64,8 +81,8 @@ function drawAll() {
 }
 function draw() {
     a += 1;
-    ctx.fillStyle = "#faf";
-    ctx.fillRect(10,10,10+a,20);
+    ctx.fillStyle = TEXT_COLOR;
+    ctx.fillText("" + game.number, firstX + firstW / 2, firstY - 5);
 
     drawButtons();
 }
@@ -111,4 +128,24 @@ function makeButton(x, y, w, h, label, color, activeColor, frameColor, click) {
 
 function makeDefButton(x, y, w, h, label, click) {
     return makeButton(x, y, w, h, label, '#555', "#888", "#aaa", click);
+}
+
+function text(t) {
+    dict = {
+        "1": "1",
+    }
+    return  dict[t] || t;
+}
+
+function save() {
+    Cookies.set("game", btoa(JSON.stringify(game)));
+}
+
+function load() {
+    let g = Cookies.get("game");
+    if (g) {
+        console.log(g);
+        console.log(JSON.parse(atob(g)));
+        game = JSON.parse(atob(g));
+    }
 }
