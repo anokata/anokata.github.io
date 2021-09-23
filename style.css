@@ -127,7 +127,7 @@ hr.six {
 
 
 span.fio {
-  color: #337;
+  color: #33a;
 }
 
 .fio:hover {
@@ -142,7 +142,17 @@ span.spoiler:hover {
   transition: all .5s;
 }
 
+h3 {
+  /* margin-top: 3em; */
+}
 
+h2 {
+  margin-top: 2em;
+}
+
+section.work {
+  margin-bottom: 4em;
+}
 
 ul {
   list-style: none;
@@ -162,4 +172,28 @@ span.tech {
   padding: .5em;
   border-radius: 1em;
   margin: 0 .2em;
+}
+
+span.tech-aug {
+  background-color: #e4f7a0;
+  padding: 0.5em;
+  border-radius: 1em;
+  margin: 0 .1em;
+  font-size: 0.8em;
+}
+
+section .hiding {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.self:hover .hiding, .self:active .hiding{
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+footer p {
+  display: inline-block;
+  margin: 0 2em;
 }
