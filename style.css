@@ -56,6 +56,10 @@ header {
   box-sizing: border-box;
 }
 
+footer img {
+  vertical-align: bottom;
+}
+
 footer a {
   color: var(--w-color);
   color: #bbb;
@@ -82,7 +86,7 @@ footer p {
   padding: .1rem;
 }
 
-footer p:hover a{
+footer p:hover * {
   color: var(--ww-color);
 }
 
@@ -234,3 +238,4 @@ section .hiding {
 p {
   margin-left: 1em;
 }
+
