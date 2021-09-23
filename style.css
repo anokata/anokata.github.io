@@ -7,10 +7,22 @@
   --rb-color:#dcc;
   --w-main: 80%;
   --w-side: 20%;
+  --font-size: 18px;
+}
+
+@media handheld or (max-width: 800px)  {
+  :root {
+    --font-size: 38px;
+  }
+}
+@media screen and (min-width: 800px)  {
+  :root {
+    --font-size: 18px;
+  }
 }
 
 body {
-  font-size: 18px;
+  font-size: var(--font-size);
   /* font-family: Sans-serif; */
   font-family: "Segoe UI", "Liberation Sans", sans-serif;
   background-color: var(--ww-color);
@@ -70,6 +82,15 @@ footer p {
   padding: .1rem;
 }
 
+footer p:hover a{
+  color: var(--ww-color);
+}
+
+footer p:hover {
+  /* background-color: var(--w-color); */
+}
+
+
 footer a:hover {
   color: var(--ww-color);
 }
@@ -114,6 +135,7 @@ p {
 
 h1 {
   font-family: Sans-serif;
+  /* margin-left: -1em; */
 }
 
 hr {
@@ -149,6 +171,7 @@ span.spoiler:hover {
 
 h3 {
   /* margin-top: 3em; */
+  margin-left: 0.5em;
 }
 
 h2 {
@@ -172,11 +195,17 @@ ul ul li::before {
   content: "📗";
 }
 
+li:hover {
+  /* transform: translateX(-0.1rem); */
+  /* transition: transform, 0.5s; */
+}
+
 span.tech {
   background-color: #aef2bf;
   padding: .5em;
   border-radius: 1em;
   margin: 0 .2em;
+  line-height: 2.5em;
 }
 
 span.tech-aug {
@@ -185,11 +214,12 @@ span.tech-aug {
   border-radius: 1em;
   margin: 0 .1em;
   font-size: 0.8em;
+  line-height: 2.5em;
 }
 
 section .hiding {
   /* visibility: hidden; */
-  opacity: 0.5;
+  /* opacity: 0.5; */
   /* height: 0; */
 }
 
