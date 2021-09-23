@@ -98,6 +98,10 @@ section a:hover {
   color: var(--g-color);
   text-decoration: underline;
 }
+section p a {
+  color: var(--b-color);
+  text-decoration: underline;
+}
 
 p {
   font-size: 1.2rem;
@@ -137,3 +141,19 @@ span.spoiler:hover {
   color: var(--b-color);
   transition: all .5s;
 }
+
+
+
+ul {
+  list-style: none;
+}
+ul li::before {
+  content: "✔️";
+  display: inline-block;
+  margin-right: 0.2rem;
+}
+
+ul ul li::before {
+  content: "📗";
+}
+
