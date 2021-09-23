@@ -157,3 +157,9 @@ ul ul li::before {
   content: "📗";
 }
 
+span.tech {
+  background-color: #aef2bf;
+  padding: .5em;
+  border-radius: 1em;
+  margin: 0 .2em;
+}
