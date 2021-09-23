@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Резюме Frontend developer</title>
+  <link rel="stylesheet" href="style.css" media="all">
+</head>
+<body>
+  <main>
+    <h1>Резюме на Frontend JS/TS developer</h1>
+    <p>
+      <span id="dayPart"></span>, {hr-name}!
+    </p>
+    <p>
+      Меня зовут <span title="Тихомиров Станислав Владимирович" class="fio">Стас</span>.
+      Приятно познакомиться!
+    </p>
+    <section class="bio">
+    bio
+    </section>
+    <section class="expirience">
+    expirience
+    </section>
+    <section class="keytech">
+    keytech
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      e-mail: <a href="mailto:quartenium@gmail.com">quartenium@gmail.com</a>    
+    </p>
+    <a href="https://rybinsk.hh.ru/applicant/resumes/view?resume=a082d2a8ff015885a70039ed1f376268323567">hh</a>
+    <p>
+      <a href="https://github.com/anokata">Github</a>
+    </p>
+    <p>1988-2021</p>
+  </footer>
+
+
+  <script>
+    function partOfDay() {
+      let dayParts = ["Доброго утра", "Добрый день", "Добрый вечер", "Доброй ночи"];
+      let hour = new Date().getHours();
+      if (hour >= 6 && hour < 12) {
+        return dayParts[0];
+      }
+      if (hour >= 12 && hour < 18) {
+        return dayParts[1];
+      }
+      if (hour >= 18) {
+        return dayParts[2];
+      }
+      if (hour < 0) {
+        return dayParts[3];
+      }
+      return "Доброго времени суток";
+    }
+    // pug.js
+    dayPart.innerHTML = partOfDay();
+  </script>
+</body>
+</html>

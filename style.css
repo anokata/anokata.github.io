@@ -1,0 +1,122 @@
+:root {
+  --w-color: #e0e0e0;
+  --ww-color: #f0f0f0;
+  --b-color: #333;
+  --g-color: #888;
+  --dg-color:#555;
+  --rb-color:#dcc;
+  --w-main: 80%;
+  --w-side: 20%;
+}
+
+body {
+  font-size: 18px;
+  font-family: Sans-serif;
+  background-color: var(--ww-color);
+  padding: 0em;
+  margin: 0em;
+  color: var(--b-color);
+}
+
+.copyleft {
+  display:inline-block;
+  transform: rotate(180deg);
+}
+
+footer a {
+  color: var(--w-color);
+  color: #bbb;
+  text-decoration: none;
+}
+
+p {
+  font-family: "Segoe UI", "Liberation Sans", sans-serif;
+}
+
+main {
+  width: var(--w-main);
+  margin: 0 auto;
+}
+
+header {
+  width: var(--w-main);
+  margin: 0 auto;
+  background-color: #ccc;
+  color: var(--b-color);
+  font: bold 2rem/2rem bold sans-serif;
+  padding: 1em;
+  padding-bottom: 1em;
+  box-sizing: border-box;
+}
+
+footer {
+  min-height: 3em;
+  width: var(--w-main);
+  margin: 0 auto;
+  background-color: var(--g-color);
+  margin-top: 1em;
+  margin-bottom: 0;
+  color: var(--w-color);
+  font: bold 2rem/2rem bold sans-serif;
+  text-align: center;
+  padding-top: 1em;
+  color: rgb(131, 140, 149);
+  background-color:#292623;
+  font-size: 0.8rem;
+}
+
+footer p {
+  font-size: 0.8rem;
+  padding: .1rem;
+}
+
+footer a:hover {
+  color: var(--ww-color);
+}
+
+aside {
+  width: var(--w-side);
+  background-color: var(--rb-color);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 9%;
+}
+
+section {
+  width: var(--w-main);
+  margin: 0 auto;
+  background-color: var(--w-color);
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+h1 {
+  font-family: Sans-serif;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+hr.six {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+span.fio {
+  color: #337;
+}
+
+.fio:hover {
+  color: #55f;
+}
