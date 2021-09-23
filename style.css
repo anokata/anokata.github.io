@@ -129,3 +129,11 @@ span.fio {
 .fio:hover {
   color: #55f;
 }
+
+span.spoiler {
+  color: var(--ww-color);
+}
+span.spoiler:hover {
+  color: var(--b-color);
+  transition: all .5s;
+}
