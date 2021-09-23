@@ -85,9 +85,18 @@ aside {
 }
 
 section {
-  width: var(--w-main);
-  margin: 0 auto;
-  background-color: var(--w-color);
+  /* width: var(--w-main); */
+  margin: 1em auto;
+  /* background-color: var(--w-color); */
+}
+
+section a {
+  color: var(--b-color);
+  text-decoration: none;
+}
+section a:hover {
+  color: var(--g-color);
+  text-decoration: underline;
 }
 
 p {
