@@ -197,3 +197,7 @@ footer p {
   display: inline-block;
   margin: 0 2em;
 }
+
+p {
+  margin-left: 1em;
+}
