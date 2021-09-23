@@ -11,7 +11,8 @@
 
 body {
   font-size: 18px;
-  font-family: Sans-serif;
+  /* font-family: Sans-serif; */
+  font-family: "Segoe UI", "Liberation Sans", sans-serif;
   background-color: var(--ww-color);
   padding: 0em;
   margin: 0em;
@@ -21,12 +22,6 @@ body {
 .copyleft {
   display:inline-block;
   transform: rotate(180deg);
-}
-
-footer a {
-  color: var(--w-color);
-  color: #bbb;
-  text-decoration: none;
 }
 
 p {
@@ -49,6 +44,12 @@ header {
   box-sizing: border-box;
 }
 
+footer a {
+  color: var(--w-color);
+  color: #bbb;
+  text-decoration: none;
+}
+
 footer {
   min-height: 3em;
   width: var(--w-main);
@@ -57,21 +58,25 @@ footer {
   margin-top: 1em;
   margin-bottom: 0;
   color: var(--w-color);
-  font: bold 2rem/2rem bold sans-serif;
+  font-weight: bold;
+  line-height: 2em;
   text-align: center;
   padding-top: 1em;
   color: rgb(131, 140, 149);
   background-color:#292623;
-  font-size: 0.8rem;
 }
 
 footer p {
-  font-size: 0.8rem;
   padding: .1rem;
 }
 
 footer a:hover {
   color: var(--ww-color);
+}
+
+footer p {
+  display: inline-block;
+  margin: 0 2em;
 }
 
 aside {
@@ -183,19 +188,17 @@ span.tech-aug {
 }
 
 section .hiding {
-  visibility: hidden;
-  opacity: 0;
+  /* visibility: hidden; */
+  opacity: 0.5;
+  /* height: 0; */
 }
 
-.self:hover .hiding, .self:active .hiding{
+.self:hover .hiding, 
+.self:active .hiding {
   visibility: visible;
   opacity: 1;
   transition: all 0.5s;
-}
-
-footer p {
-  display: inline-block;
-  margin: 0 2em;
+  /* height: 100%; */
 }
 
 p {
