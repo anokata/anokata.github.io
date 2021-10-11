@@ -1,7 +1,9 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
+
 :root {
-  --w-color: #e0e0e0;
-  --ww-color: #f0f0f0;
-  --b-color: #333;
+  --w-color: #e8e8e8;
+  --ww-color: #f8f8f8;
+  --b-color: #345;
   --g-color: #888;
   --dg-color:#555;
   --rb-color:#dcc;
@@ -10,7 +12,7 @@
   --font-size: 18px;
 }
 
-@media handheld or (max-width: 800px)  {
+@media handheld and (max-width: 800px)  {
   :root {
     --font-size: 38px;
   }
@@ -23,12 +25,12 @@
 
 body {
   font-size: var(--font-size);
-  /* font-family: Sans-serif; */
-  font-family: "Segoe UI", "Liberation Sans", sans-serif;
   background-color: var(--ww-color);
   padding: 0em;
   margin: 0em;
   color: var(--b-color);
+  color: #465b68;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
 .copyleft {
@@ -48,9 +50,11 @@ main {
 header {
   width: var(--w-main);
   margin: 0 auto;
-  background-color: #ccc;
+  background-color: var(--ww-color);
   color: var(--b-color);
-  font: bold 2rem/2rem bold sans-serif;
+  font-weight:bold;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
   padding: 1em;
   padding-bottom: 1em;
   box-sizing: border-box;
@@ -64,6 +68,9 @@ footer a {
   color: var(--w-color);
   color: #bbb;
   text-decoration: none;
+}
+a:hover {
+  color: var(--ww-color);
 }
 
 footer {
@@ -79,6 +86,7 @@ footer {
   text-align: center;
   padding-top: 1em;
   color: rgb(131, 140, 149);
+  color: var(--w-color);
   background-color:#292623;
 }
 
@@ -138,8 +146,9 @@ p {
 }
 
 h1 {
-  font-family: Sans-serif;
+  /* font-family: Sans-serif; */
   /* margin-left: -1em; */
+  text-align: center;
 }
 
 hr {
@@ -239,3 +248,26 @@ p {
   margin-left: 1em;
 }
 
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+a {
+  display: block;
+  padding: .3rem;
+  margin: .5rem;
+  color: #566b78;
+}
+a:hover {
+  background-color: #bbb;
+}
+.links {
+  margin: auto;
+  width: 85%;
+  background-color: #f0f0f0;
+  outline: .2rem solid #f8f8f8;
+  padding: .5rem;
+
+}
