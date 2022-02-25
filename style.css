@@ -1,23 +1,23 @@
-@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
+@import "https://fonts.googleapis.com/css?family=Roboto:300,400,500";
 
 :root {
   --w-color: #e8e8e8;
   --ww-color: #f8f8f8;
   --b-color: #345;
   --g-color: #888;
-  --dg-color:#555;
-  --rb-color:#dcc;
+  --dg-color: #555;
+  --rb-color: #dcc;
   --w-main: 80%;
   --w-side: 20%;
   --font-size: 18px;
 }
 
-@media handheld and (max-width: 800px)  {
+@media handheld and (max-width: 800px) {
   :root {
     --font-size: 38px;
   }
 }
-@media screen and (min-width: 800px)  {
+@media screen and (min-width: 800px) {
   :root {
     --font-size: 18px;
   }
@@ -34,7 +34,7 @@ body {
 }
 
 .copyleft {
-  display:inline-block;
+  display: inline-block;
   transform: rotate(180deg);
 }
 
@@ -52,7 +52,7 @@ header {
   margin: 0 auto;
   background-color: var(--ww-color);
   color: var(--b-color);
-  font-weight:bold;
+  font-weight: bold;
   font-size: 1.5rem;
   line-height: 1.5rem;
   padding: 1em;
@@ -87,11 +87,11 @@ footer {
   padding-top: 1em;
   color: rgb(131, 140, 149);
   color: var(--w-color);
-  background-color:#292623;
+  background-color: #292623;
 }
 
 footer p {
-  padding: .1rem;
+  padding: 0.1rem;
 }
 
 footer p:hover * {
@@ -101,7 +101,6 @@ footer p:hover * {
 footer p:hover {
   /* background-color: var(--w-color); */
 }
-
 
 footer a:hover {
   color: var(--ww-color);
@@ -152,19 +151,18 @@ h1 {
 }
 
 hr {
-    border: 0;
-    height: 1px;
-    background: #333;
-    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
 hr.six {
-    border: 0;
-    height: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
-
 
 span.fio {
   color: #33a;
@@ -179,12 +177,16 @@ span.spoiler {
 }
 span.spoiler:hover {
   color: var(--b-color);
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 h3 {
   /* margin-top: 3em; */
-  margin-left: 0.5em;
+  margin-left: 0em;
+}
+
+h4 {
+  margin-left: 0.3em;
 }
 
 h2 {
@@ -214,20 +216,26 @@ li:hover {
 }
 
 span.tech {
-  background-color: #aef2bf;
-  padding: .5em;
-  border-radius: 1em;
-  margin: 0 .2em;
+  padding: 0.5em;
+  padding-bottom: 0.65em;
+  margin: 0 0.2em;
+
   line-height: 2.5em;
+
+  border-radius: 1em;
+  background-color: #aef2bf;
 }
 
 span.tech-aug {
-  background-color: #e4f7a0;
+  margin: 0 0.1em;
   padding: 0.5em;
-  border-radius: 1em;
-  margin: 0 .1em;
+  padding-bottom: 0.65em;
+
   font-size: 0.8em;
   line-height: 2.5em;
+
+  background-color: #e4f7a0;
+  border-radius: 1em;
 }
 
 section .hiding {
@@ -236,7 +244,7 @@ section .hiding {
   /* height: 0; */
 }
 
-.self:hover .hiding, 
+.self:hover .hiding,
 .self:active .hiding {
   visibility: visible;
   opacity: 1;
@@ -249,15 +257,16 @@ p {
 }
 
 hr {
-    border: 0;
-    height: 1px;
-    background: #333;
-    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 a {
   display: block;
-  padding: .3rem;
-  margin: .5rem;
+  padding: 0.3rem;
+  margin: 0.5rem;
+  margin-left: 0em;
   color: #566b78;
 }
 a:hover {
@@ -267,7 +276,14 @@ a:hover {
   margin: auto;
   width: 85%;
   background-color: #f0f0f0;
-  outline: .2rem solid #f8f8f8;
-  padding: .5rem;
+  outline: 0.2rem solid #f8f8f8;
+  padding: 0.5rem;
+}
 
+li a {
+  display: inline;
+}
+
+section a {
+  display: inline;
 }
